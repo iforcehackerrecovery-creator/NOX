@@ -427,14 +427,22 @@
   </div>
 
   <div class="contact-box">
-    <form action="https://formsubmit.co/Vomeria@mail.com" method="POST">
+    <form
+      id="contactForm"
+      action="https://formsubmit.co/Vomeria@mail.com"
+      method="POST"
+      onsubmit="prepareFormSubmit()"
+    >
+      <input type="text" name="name" id="name" placeholder="Your Name" required>
+      <input type="email" name="email" id="email" placeholder="Your Email" required>
+      <textarea name="message" id="message" placeholder="Tell us about your security requirements..." required></textarea>
+
+      <!-- FormSubmit settings -->
       <input type="hidden" name="_subject" value="New CyberNox Website Request">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="true">
-      <input type="hidden" name="_next" value="https://etical-zenith-hackers.github.io/active/">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Tell us about your security requirements..." required></textarea>
+      <input type="hidden" name="_next" id="redirectUrl" value="">
+
       <button type="submit">Send Message</button>
     </form>
   </div>
@@ -446,8 +454,12 @@
   <div>Ethical Security • Responsible Research • Digital Defense</div>
 </footer>
 
-<!-- FormSubmit sends submitted requests to Vomeria@mail.com.
-     No email password is stored in this website. -->
-
+<script>
+  function prepareFormSubmit() {
+    // Return the visitor to the site's home page after FormSubmit processes the request.
+    const homeUrl = window.location.origin + window.location.pathname.split('/').slice(0, -1).join('/') + '/';
+    document.getElementById("redirectUrl").value = homeUrl;
+  }
+</script>
 </body>
 </html>

@@ -34,13 +34,11 @@ The website uses the supplied CyberNox GreyHat images as:
 - Header/footer logo artwork
 
 
-## Contact form email delivery
+## Contact form setup
 
-The Contact form is configured to submit requests through FormSubmit to `Vomeria@mail.com`.
-On the first submission, FormSubmit may send an activation/confirmation email to the destination
-address before delivery is enabled. No email password is stored in the website.
+The contact form is configured to submit requests to `Vomeria@mail.com` using FormSubmit.co and then redirect the visitor back to the site's home page.
 
-The `_next` field currently returns visitors to:
-`https://etical-zenith-hackers.github.io/active/`
+### First-time activation
+FormSubmit may send an activation/confirmation email to `Vomeria@mail.com` the first time the form is used. Open that email and confirm the address before relying on the form for live submissions.
 
-If this site is published at a different URL, change the `_next` value in `index.html`.
+No server-side code is required for this GitHub Pages site.
